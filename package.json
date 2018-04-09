@@ -6,6 +6,9 @@
   "license": "MIT",
   "dependencies": {
     "@google-cloud/storage": "^1.6.0",
+    "@types/events": "^1.2.0",
+    "@types/node": "^9.6.2",
+    "google-assistant": "^0.2.2",
     "typescript": "^2.8.1"
   },
   "scripts": {
