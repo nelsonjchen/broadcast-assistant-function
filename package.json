@@ -9,6 +9,7 @@
     "@types/events": "^1.2.0",
     "@types/node": "^9.6.2",
     "google-assistant": "^0.2.2",
+    "google-auth-library": "^1.4.0",
     "typescript": "^2.8.1"
   },
   "scripts": {

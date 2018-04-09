@@ -7,7 +7,7 @@ import * as readline from 'readline';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as mkdirp from 'mkdirp';
-const OAuth2 = new (require('google-auth-library'))().OAuth2;
+import { OAuth2Client } from 'google-auth-library';
 
 function Auth(config) {
   if (config === undefined) config = {};
@@ -22,7 +22,7 @@ function Auth(config) {
   }
 
   const key = require(config.keyFilePath).installed;
-  const oauthClient = new OAuth2(key.client_id, key.client_secret, key.redirect_uris[0]);
+  const oauthClient = new OAuth2Client(key.client_id, key.client_secret, key.redirect_uris[0]);
   let tokens;
 
   const saveTokens = () => {

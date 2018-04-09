@@ -2,6 +2,7 @@ import * as EventEmitter from 'events';
 import * as util from 'util';
 
 import * as Assistant from 'google-assistant/components/assistant';
+// Use internal Auth
 import Auth from './auth';
 import * as Conversation from 'google-assistant/components/conversation';
 
@@ -36,8 +37,6 @@ function GoogleAssistant(authConfig, callback) {
     this.emit('started', conversation);
     if (callback) callback(conversation);
   };
-
-  return this;
 }
 
 util.inherits(GoogleAssistant, EventEmitter);
