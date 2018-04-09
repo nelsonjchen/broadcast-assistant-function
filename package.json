@@ -1,0 +1,14 @@
+{
+  "name": "broadcast-assistant-function",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Nelson Chen <crazysim@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/storage": "^1.6.0",
+    "typescript": "^2.8.1"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/tsc"
+  }
+}
