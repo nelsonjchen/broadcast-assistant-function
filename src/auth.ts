@@ -8,6 +8,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as mkdirp from 'mkdirp';
 import { OAuth2Client } from 'google-auth-library';
+import { Credentials } from 'google-auth-library/build/src/auth/credentials';
 
 function Auth(config) {
   if (config === undefined) config = {};
@@ -23,7 +24,7 @@ function Auth(config) {
 
   const key = require(config.keyFilePath).installed;
   const oauthClient = new OAuth2Client(key.client_id, key.client_secret, key.redirect_uris[0]);
-  let tokens;
+  let tokens: Credentials;
 
   const saveTokens = () => {
     oauthClient.setCredentials(tokens);
