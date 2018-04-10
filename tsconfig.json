@@ -3,7 +3,6 @@
     "lib": ["es6"],
     "module": "commonjs",
     "noImplicitAny": false,
-    "outDir": "dist",
     "sourceMap": true,
     "target": "es6",
     "typeRoots": [

@@ -6,38 +6,37 @@ import * as Assistant from 'google-assistant/components/assistant';
 import Auth from './auth';
 import * as Conversation from 'google-assistant/components/conversation';
 
-function GoogleAssistant(authConfig, callback) {
-  if (authConfig === undefined) {
-    const error = new Error('Missing auth config object!');
-    this.emit('error', error);
-    if (callback) callback(error);
-    return;
+export default class GoogleAssistant extends EventEmitter {
+  assistant: any;
+
+  constructor(authConfig, callback?) {
+    super()
+    if (authConfig === undefined) {
+      const error = new Error('Missing auth config object!');
+      this.emit('error', error);
+      if (callback) callback(error);
+      return;
+    }
+    // we need to auth with Google right out of the gate
+    const auth = new Auth(authConfig);
+
+    auth.on('ready', (client) => {
+      this.assistant = new Assistant(client);
+      this.emit('ready', this.assistant);
+      if (callback) callback(this.assistant);
+    });
   }
 
-  let assistant;
-
-  // we need to auth with Google right out of the gate
-  const auth = new Auth(authConfig);
-
-  auth.on('ready', (client) => {
-    assistant = new Assistant(client);
-    this.emit('ready', assistant);
-    if (callback) callback(assistant);
-  });
-
-  this.start = (conversationConfig, callback) => {
-    if (assistant === undefined) {
+  start(conversationConfig, callback) {
+    if (this.assistant === undefined) {
       const error = new Error('Tried calling start() before the ready event!');
       this.emit('error', error);
       if (callback) callback(error);
       return;
     }
 
-    const conversation = new Conversation(assistant, conversationConfig);
+    const conversation = new Conversation(this.assistant, conversationConfig);
     this.emit('started', conversation);
     if (callback) callback(conversation);
-  };
-}
-
-util.inherits(GoogleAssistant, EventEmitter);
-module.exports = GoogleAssistant;
+  }
+};
