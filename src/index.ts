@@ -53,11 +53,16 @@ function broadcastMessageGoogleAssistant(message: string) {
 }
 
 export function broadcastMessage(req: Request, res: Response) {
+  const secret = require(path.resolve(__dirname, 'env.json')).secret;
   if (req.body.message === undefined) {
     // This is an error case, as "message" is required
     res.status(400).send('No message defined!');
   } else {
     // Everything is ok
+    if (req.body.secret !== secret) {
+      res.status(400).send('Invalid Shared Secret.');
+      return;
+    }
     console.log(req.body.message);
     broadcastMessageGoogleAssistant(req.body.message)
     res.status(200).end();

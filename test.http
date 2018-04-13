@@ -6,7 +6,8 @@ POST http://localhost:8010/broadcast-assistant-37619/us-central1/broadcastMessag
 content-type: application/json
 
 {
-    "message": "The laundry machine is done."
+    "message": "The laundry machine is done.",
+    "secret": "xxx"
 }
 
 ###
@@ -15,7 +16,8 @@ POST http://localhost:8010/broadcast-assistant-37619/us-central1/broadcastMessag
 content-type: application/json
 
 {
-    "message": "The dryer machine is done."
+    "message": "The dryer machine is done.",
+    "secret": "xxx"
 }
 
 ###
@@ -24,7 +26,8 @@ POST http://localhost:8010/broadcast-assistant-37619/us-central1/broadcastMessag
 content-type: application/json
 
 {
-    "message": "I have come here to chew bubblegum and kick ass ... and I'm all out of bubblegum."
+    "message": "I have come here to chew bubblegum and kick ass ... and I'm all out of bubblegum.",
+    "secret": "xxx"
 }
 
 
@@ -34,7 +37,8 @@ POST http://localhost:8010/broadcast-assistant-37619/us-central1/broadcastMessag
 content-type: application/json
 
 {
-    "message": "Oh, egads! My roast is ruined. But what if I were to purchase fast food and disguise it as my own cooking? Delightfully devilish, Seymour."
+    "message": "Oh, egads! My roast is ruined. But what if I were to purchase fast food and disguise it as my own cooking? Delightfully devilish, Seymour.",
+    "secret": "xxx"
 }
 
 
