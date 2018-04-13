@@ -1,0 +1,40 @@
+# Use with VSCode REST Client extension
+
+###
+
+POST http://localhost:8010/broadcast-assistant-37619/us-central1/broadcastMessage HTTP/1.1
+content-type: application/json
+
+{
+    "message": "The laundry machine is done."
+}
+
+###
+
+POST http://localhost:8010/broadcast-assistant-37619/us-central1/broadcastMessage HTTP/1.1
+content-type: application/json
+
+{
+    "message": "The dryer machine is done."
+}
+
+###
+
+POST http://localhost:8010/broadcast-assistant-37619/us-central1/broadcastMessage HTTP/1.1
+content-type: application/json
+
+{
+    "message": "I have come here to chew bubblegum and kick ass ... and I'm all out of bubblegum."
+}
+
+
+###
+
+POST http://localhost:8010/broadcast-assistant-37619/us-central1/broadcastMessage HTTP/1.1
+content-type: application/json
+
+{
+    "message": "Oh, egads! My roast is ruined. But what if I were to purchase fast food and disguise it as my own cooking? Delightfully devilish, Seymour."
+}
+
+

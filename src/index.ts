@@ -28,13 +28,16 @@ const startConversation = (conversation) => {
     });
 };
 
-export function broadcastMessage(req: Request, res: Response) {
+function broadcastMessageGoogleAssistant(message: string) {
+  const savedTokensBucket = require(path.resolve(__dirname, 'env.json')).savedTokensBucket;
+
   const config = {
     auth: {
       keyFilePath: path.resolve(__dirname, 'credentials.json'),
-      savedTokensBucket: 'broadcast-assistant-37619.appspot.com',
+      savedTokensBucket,
     }
   };
+
 
   const assistant = new GoogleAssistant(config.auth);
   assistant
@@ -42,15 +45,21 @@ export function broadcastMessage(req: Request, res: Response) {
       assistant.start(
         {
           lang: 'en-US', // defaults to en-US, but try other ones, it's fun!
-          textQuery: 'broadcast Hello World!'
+          textQuery: 'broadcast ' + message
         },
         startConversation
       )
     })
+}
 
-  res
-    .status(200)
-    .type("application/json")
-    .send("{ \"result\": \"Hello World!\"}")
-    .end()
+export function broadcastMessage(req: Request, res: Response) {
+  if (req.body.message === undefined) {
+    // This is an error case, as "message" is required
+    res.status(400).send('No message defined!');
+  } else {
+    // Everything is ok
+    console.log(req.body.message);
+    broadcastMessageGoogleAssistant(req.body.message)
+    res.status(200).end();
+  }
 }
