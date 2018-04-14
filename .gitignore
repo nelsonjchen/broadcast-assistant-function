@@ -2,3 +2,4 @@ node_modules/
 src/*.js
 *.map
 credentials.json
+internal_test.http
