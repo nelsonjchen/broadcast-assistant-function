@@ -30,5 +30,5 @@ def broadcast(text) {
     ]
   ]
 
-  httpPostJSON(params)
+  httpPostJson(params)
 }
