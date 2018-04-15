@@ -74,9 +74,14 @@ More like guidelines than rules. Post to the URL. For Samsung Smartthings, which
   httpPostJson(params)
 ```
 
+### Development
+
+* Use the Google Cloud functions emulator.
+
+* Portions of the original Google Assistant package were modified to write to Google Cloud Storage directly instead of to the disk. Additionally, much of it has been converted to Typescript.
+
 ## Uses
 
-* Doorbell
 * Laundry Machines
 * Cooking Appliances
 * Freaking out people
