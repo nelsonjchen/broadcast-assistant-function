@@ -10,7 +10,7 @@ This function is to be deployed to a Google Cloud Platform project.
 
 The original purpose of this project is to provide an shared secret endpoint that devices such as Samsung SmartThings or some other IoT setup can call out to on the public internet to say something on their speakers with a simple HTTP call.
 
-There is no need for a Raspberry Pi on the network like with [assistant relay][assistant-repay]. That said, other implementations that do run on the Raspberry Pi or something similar need internet anyway as a connection is required to connect to Google's servers to utilize Google Assistant's "broadcast <msg>" command.
+There is no need for a Raspberry Pi on the network like with [assistant relay][assistant-relay]. That said, other implementations that do run on the Raspberry Pi or something similar need internet anyway as a connection is required to connect to Google's servers to utilize Google Assistant's "broadcast <msg>" command.
 
 By design, this particular implementation isn't exactly a "multi-tenant" SASS. It's merely an adaptaion of the console example from [that google-assistant package][gapackage] to use cloud facilities instead of OS facilities with a hardcoded message prefix. With all that news about privacy, do you really want to give some third party access to your Google Account? Best to keep the third-parties down to just Google's more privacy oriented division anyway.
 
